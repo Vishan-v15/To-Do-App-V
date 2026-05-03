@@ -1,0 +1,11 @@
+/* reset base */
+* {
+    margin: 0;
+    padding: 0;
+}
+
+/* Onbording page css */
+.body-1 {
+    font-family: bookman old style;
+    background-color: F1E8C7;
+}
