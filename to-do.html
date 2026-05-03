@@ -1,0 +1,47 @@
+<!-- Main TO-DO List page -->
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>To-Do App</title>
+</head>
+
+<body>
+    <!-- header area -->
+    <header>
+        <nav>
+            <h1>My To-Do List</h1>
+            <h2 id="WelcomeText"></h2>
+            <button onclick="toggleTheme()">Dark mode</button>
+        </nav>
+    </header>
+
+    <div class="container">
+        <!-- Input area -->
+        <div class="inputArea">
+            <input type="text" id="taskInput" placeholder="Add a new task...">
+            <button id="addBtn">+add</button>
+        </div>
+
+        <!-- Filter button area -->
+        <div class="filters">
+            <button class="filter-btn Active" data-filter="All">All</button>
+            <button class="filter-btn" data-filter="Active">Active</button>
+            <button class="filter-btn" data-filter="Completed">Completed</button>
+        </div>
+
+        <!-- task list area -->
+        <ul id="tasklist"></ul>
+
+        <!-- footer -->
+        <div class="footer">
+            <button id="clearBtn">Clear all</button>
+        </div>
+
+    </div>
+
+</body>
+
+</html>
