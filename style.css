@@ -1,11 +1,104 @@
 /* reset base */
 * {
-    margin: 0;
-    padding: 0;
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+html {
+  scroll-behavior: smooth;
 }
 
 /* Onbording page css */
 .body-1 {
-    font-family: bookman old style;
-    background-color: F1E8C7;
+  font-family: 'bookman old style', serif;
+  background-color: #F1E8C7;
+  min-height: 100vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+/* main onbording container */
+.onbording {
+  background: #ffffff;
+  padding: 30px 25px;
+  border-radius: 20px;
+  text-align: center;
+  width: 320px;
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.15);
+}
+
+/* heading */
+.onbording h1 {
+  text-align: center;
+  font-size: 1.6rem;
+  color: #333;
+  margin-bottom: 15px;
+}
+
+/* image */
+.Illustration {
+  display: block;
+  border-radius: 12px;
+  width: 100%;
+  max-width: 220px;
+  height: fit-content;
+  margin: 0 auto;
+}
+
+/* strong Paragraphs */
+.onbording p strong {
+  font-size: 14px;
+  color: #666;
+}
+
+/* paragraph */
+.onbording p {
+  font-size: 14px;
+  color: #444;
+  margin-bottom: 15px;
+  margin-top: 10px;
+}
+
+/* Input field */
+#name {
+  width: 100%;
+  padding: 10px;
+  border: 1px solid #ccc;
+  border-radius: 10px;
+  margin: 15px 0;
+  font-size: 14px;
+  outline: none;
+  transition: 0.3s;
+}
+
+/* Input focus effect */
+#name:focus {
+  border-color: #68ff77;
+  box-shadow: 0 0 5px rgba(38, 121, 59, 0.3);
+}
+
+#name::placeholder {
+  font-style: italic;
+  color: #aaa
+}
+
+/* add butoon */
+button {
+  width: 100%;
+  padding: 10px;
+  border: none;
+  border-radius: 10px;
+  background: #9CA763;
+  color: #fff;
+  font-size: 15px;
+  cursor: pointer;
+  transition: 0.3s;
+}
+
+/* button hover */
+button:hover {
+  background: #1b733e;
+  transform: scale(1.05);
 }
