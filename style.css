@@ -117,6 +117,12 @@ body {
   color: #333;
 }
 
+/* dark mode */
+.dark-mode {
+ background: linear-gradient(to top, #110202, #11180f);
+color: white;
+}
+
 /* Header */
 header {
   background: #9CA763;
@@ -138,6 +144,7 @@ nav h1 {
   font-size: 14px;
   font-weight: normal;
   margin-left: 10px;
+  color: #9edd79;
 }
 
 /* dark Theme button */
