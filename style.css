@@ -9,6 +9,7 @@ html {
   scroll-behavior: smooth;
 }
 
+/* first page css */
 /* Onbording page css */
 .body-1 {
   font-family: 'bookman old style', serif;
@@ -85,7 +86,7 @@ html {
 }
 
 /* add butoon */
-button {
+.startbtn {
   width: 100%;
   padding: 10px;
   border: none;
@@ -99,6 +100,173 @@ button {
 
 /* button hover */
 button:hover {
-  background: #1b733e;
+  background: #74da9c;
   transform: scale(1.05);
+}
+
+/* first page css end */
+/* Main to-do list page css start */
+
+
+/* Body for main html*/
+body {
+  font-family: 'bookman old style', serif;
+  background: #f5f7fb;
+  color: #333;
+}
+
+/* Header */
+header {
+  background: #9CA763;
+  color: white;
+  padding: 15px 20px;
+}
+
+nav {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+nav h1 {
+  font-size: 20px;
+}
+
+#WelcomeText {
+  font-size: 14px;
+  font-weight: normal;
+  margin-left: 10px;
+}
+
+/* dark Theme button */
+nav button {
+  background: rgb(231, 242, 227);
+  color: #27492a;
+  border: none;
+  padding: 6px 10px;
+  border-radius: 8px;
+  cursor: pointer;
+  font-size: 12px;
+}
+
+nav button:hover {
+  background: #74da9c;
+}
+
+/* Main container for to-do.html*/
+.container {
+  max-width: 650px;
+  margin: 30px auto;
+  background: #fff;
+  padding: 20px;
+  border-radius: 15px;
+  box-shadow: 0 10px 25px rgba(0, 0, 0, 0.1);
+}
+
+/* Input area */
+.inputArea {
+  display: flex;
+  align-items: center;
+  border: 1px solid #ccc;
+  border-radius: 12px;
+  padding: 10px;
+  background: #fff;
+  gap: 10px;
+  margin-bottom: 15px;
+}
+
+/* add new task */
+#taskInput {
+  flex: 1;
+  padding: 10px;
+  border: 1px solid #ccc;
+  border-radius: 10px;
+  outline: none;
+}
+
+#taskInput:focus {
+  border-color: #749c55;
+}
+
+/* Add button */
+#addBtn {
+  padding: 10px 12px;
+  background: #9CA763;
+  color: white;
+  border: none;
+  border-radius: 10px;
+  cursor: pointer;
+  transition: 0.2s;
+}
+
+#addBtn:hover {
+  background: #74da9c;
+}
+
+/* task filters */
+.filters {
+  display: flex;
+  justify-content: space-between;
+  margin-bottom: 15px;
+}
+
+.filter-btn {
+  flex: 1;
+  margin: 0 3px;
+  padding: 8px;
+  border: none;
+  border-radius: 8px;
+  background: #eee;
+  cursor: pointer;
+  font-size: 13px;
+}
+
+/* Active filter */
+.filter-btn.Active {
+  background: #9CA763;
+  color: white;
+}
+
+/* Task list */
+#tasklist {
+  list-style: none;
+}
+
+/* Each task */
+#tasklist li {
+  background: #f1f3f9;
+  padding: 10px;
+  border-radius: 10px;
+  margin-bottom: 8px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+/* Completed task */
+.completed {
+  text-decoration: line-through;
+  color: #888;
+}
+
+/* footer area */
+.footer {
+  margin-top: 15px;
+  display: flex;
+  justify-content: flex-end;
+}
+
+/* clear all btn */
+#clearBtn {
+  padding: 8px 15px;
+  border: none;
+  border-radius: 8px;
+  background: #fb5454;
+  color: rgb(252, 252, 252);
+  cursor: pointer;
+
+}
+
+#clearBtn:hover {
+  background: #e94545;
 }
