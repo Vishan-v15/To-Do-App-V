@@ -27,7 +27,8 @@ html {
   border-radius: 20px;
   text-align: center;
   width: 90%;
-  max-width: 500px; /* max size */
+  max-width: 450px;
+  /* max size */
   margin: 0 auto;
   box-shadow: 0 10px 30px rgba(0, 0, 0, 0.15);
 }
@@ -35,7 +36,7 @@ html {
 /* heading */
 .onbording h1 {
   text-align: center;
-  font-size: 2.3rem;
+  font-size: 2rem;
   color: #333;
   margin-bottom: 15px;
 }
@@ -71,7 +72,7 @@ html {
   border: 1px solid #ccc;
   border-radius: 10px;
   margin: 15px 0;
-  font-size: 20px;
+  font-size: 18px;
   outline: none;
   transition: 0.3s;
 }
@@ -95,7 +96,7 @@ html {
   border-radius: 10px;
   background: #9CA763;
   color: #fff;
-  font-size: 21px;
+  font-size: 20px;
   cursor: pointer;
   transition: 0.3s;
 }
@@ -117,13 +118,51 @@ body {
   color: #333;
 }
 
-/* dark mode */
-.dark-mode {
- background: linear-gradient(to top, #110202, #11180f);
-color: white;
+/* dark mode theme */
+body.dark-mode {
+  background: #0f172a;
+  color: #e5e7eb;
 }
 
-/* Header */
+body.dark-mode .container {
+  background: #1e293b;
+  color: #e5e7eb;
+}
+
+.dark-mode #tasklist li {
+  background: #334155;
+  color: #e5e7eb;
+}
+
+.dark-mode .inputArea {
+  background: #1e293b;
+  border-color: #475569;
+}
+
+.dark-mode #taskInput {
+  background: transparent;
+  color: white;
+}
+
+.dark-mode header {
+  background: #1e396d;
+}
+
+body.dark-mode .filter-btn {
+  background: #4b596c;
+  color: #e5e7eb;
+}
+
+body.dark-mode .filter-btn.Active {
+  background: #636F2F;
+  color: white;
+}
+
+body.dark-mode .filter-btn:hover {
+  background: #374151;
+}
+
+/* Header area */
 header {
   background: #9CA763;
   color: white;
@@ -141,10 +180,10 @@ nav h1 {
 }
 
 #WelcomeText {
-  font-size: 14px;
+  font-size: 16px;
   font-weight: normal;
+  color: #ffffff;
   margin-left: 10px;
-  color: #9edd79;
 }
 
 /* dark Theme button */
@@ -156,6 +195,7 @@ nav button {
   border-radius: 8px;
   cursor: pointer;
   font-size: 15px;
+  margin-left: 20px;
 }
 
 nav button:hover {
@@ -221,19 +261,25 @@ nav button:hover {
 
 .filter-btn {
   flex: 1;
-  margin: 0 3px;
+  margin: 0 6px;
   padding: 8px;
   border: none;
   border-radius: 8px;
-  background: #eee;
   cursor: pointer;
   font-size: 15px;
+  background: #e5e7eb;
+  transition: 0.2s;
 }
 
 /* Active filter */
 .filter-btn.Active {
   background: #9CA763;
   color: white;
+}
+
+.filter-btn:hover {
+  transform: scale(1.05);
+  background: #d1d5db;
 }
 
 /* Task list */
@@ -250,12 +296,66 @@ nav button:hover {
   display: flex;
   justify-content: space-between;
   align-items: center;
+  animation: fadeIn 0.25s ease;
+}
+
+/* task list animation */
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+    transform: translateY(6px);
+  }
+
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.task-item {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  flex: 1;
+}
+
+/* task status */
+.status {
+  font-size: 12px;
+  padding: 4px 8px;
+  border-radius: 6px;
+  margin-right: 20px;
+}
+
+.status.pending {
+  background: #f4cc5d;
+  color: #24241f;
+}
+
+.status.done {
+  background: #70e68c;
+  color: #141713;
 }
 
 /* Completed task */
 .completed {
   text-decoration: line-through;
   color: #888;
+}
+
+/* delete taskbtn */
+.delete-btn {
+    background: #fb5454;
+    color: white;
+    border: none;
+    border-radius: 8px;
+    padding: 5px 10px;
+    cursor: pointer;
+    font-size: 14px;
+}
+
+.delete-btn:hover {
+    background: #e04343;
 }
 
 /* footer area */
@@ -273,9 +373,19 @@ nav button:hover {
   background: #fb5454;
   color: rgb(252, 252, 252);
   cursor: pointer;
-
 }
 
 #clearBtn:hover {
   background: #e94545;
+}
+
+/* Responsive design for mobile */
+@media (max-width: 600px) {
+  .container {
+    width: 95%;
+  }
+
+  .filters {
+    flex-direction: column;
+  }
 }
