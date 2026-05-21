@@ -319,7 +319,7 @@ nav button:hover {
   flex: 1;
 }
 
-/* task status */
+/* task status in js*/
 .status {
   font-size: 12px;
   padding: 4px 8px;

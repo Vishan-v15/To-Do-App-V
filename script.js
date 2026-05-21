@@ -1,4 +1,4 @@
-// When the page fully loads, run this
+// 01-When the page fully loads, run this
 
 document.addEventListener("DOMContentLoaded", function () {
     // shows the username in header
@@ -8,12 +8,25 @@ document.addEventListener("DOMContentLoaded", function () {
         greeting.textContent = "Hey 👋 " + userName;
     }
 
+    
+    // my missing js  Load saved theme
+    const savedTheme = localStorage.getItem("theme");
+
+    if (savedTheme === "dark") {
+        document.body.classList.add("dark-mode");
+
+        const themeBtn = document.querySelector("nav button");
+        if (themeBtn) {
+            themeBtn.textContent = "Light mode";
+        }
+    }
+
     // load tasks from localstorage
     if (document.getElementById("tasklist")) {
         loadTasks();
     }
 
-    // Make filter buttons work
+    //02- Make filter buttons work
     const filterButtons = document.querySelectorAll(".filter-btn");
     filterButtons.forEach(function (btn) {
         btn.addEventListener("click", function () {
@@ -49,7 +62,7 @@ document.addEventListener("DOMContentLoaded", function () {
 
 });
 
-// Save name and go to to-do page
+// 03-Save name and go to to-do page
 function startApp() {
     const nameInput = document.getElementById("name");
 
@@ -58,22 +71,23 @@ function startApp() {
     const name = nameInput.value.trim();
 
     localStorage.setItem("userName", name || "Friend");
-    console.log("Name entered:", name);
+    
     window.location.href = "to-do.html";
 }
 
 
-// Add a new task to the list
+// 04-Add a new task to the list
 function addTask() {
     const taskInput = document.getElementById("taskInput");
     const taskText = taskInput.value.trim();
 
+    // validation for task input 
     if (taskText === "") {
         taskInput.placeholder = "Please type a task first!";
         taskInput.focus();
         return;
     }
-
+    //task object  key: value,
     const newTask = {
         id: Date.now(),
         text: taskText,
@@ -91,7 +105,7 @@ function addTask() {
 }
 
 
-// Show all tasks on screen
+// 05-Show all tasks on screen
 function loadTasks() {
     const tasks = getSavedTasks();
     const taskList = document.getElementById("tasklist");
@@ -104,7 +118,7 @@ function loadTasks() {
 }
 
 
-// Create and display one task item
+// 06-Create and display one task item
 function showTask(task) {
     const taskList = document.getElementById("tasklist");
 
@@ -115,6 +129,7 @@ function showTask(task) {
         li.classList.add("completed-task");
     }
 
+    // dynamic html genaration
     li.innerHTML = `
         <div class="task-item">
             <input 
@@ -122,13 +137,13 @@ function showTask(task) {
                 ${task.completed ? "checked" : ""} 
                 onchange="toggleComplete(${task.id})"
             >
-            <span class="${task.completed ? "completed" : ""}">${task.text}</span>
+            <span class="${task.completed ? "completed" : ""}">
+            ${task.text}
+            </span>
         </div>
-
         <span class="status ${task.completed ? "done" : "pending"}">
             ${task.completed ? "Done" : "Pending"}
         </span>
-
         <button class="delete-btn" onclick="deleteTask(${task.id})">Delete</button>
     `;
 
@@ -136,7 +151,7 @@ function showTask(task) {
 }
 
 
-// Toggle task complete
+// 07-Toggle task complete label
 function toggleComplete(taskId) {
     const tasks = getSavedTasks();
 
@@ -151,7 +166,7 @@ function toggleComplete(taskId) {
 }
 
 
-// Delete one task
+// 08-Delete one task
 function deleteTask(taskId) {
     const tasks = getSavedTasks();
 
@@ -164,7 +179,7 @@ function deleteTask(taskId) {
 }
 
 
-// Clear all tasks
+// 09-Clear all tasks
 function clearAllTasks() {
     const confirmed = confirm("Are you sure you want to delete all tasks?");
     if (confirmed) {
@@ -174,12 +189,11 @@ function clearAllTasks() {
 }
 
 
-// Filter tasks (All / Active / Completed)
+// 10-Filter tasks (All / Active / Completed)
 function filterTasks(filter) {
 
     const allItems = document.querySelectorAll("#tasklist li");
-    const tasks = getSavedTasks(); // ✅ FIX: moved outside loop
-
+    const tasks = getSavedTasks();
     allItems.forEach(function (li) {
 
         const taskId = Number(li.getAttribute("data-id"));
@@ -187,7 +201,7 @@ function filterTasks(filter) {
         const task = tasks.find(function (t) {
             return t.id === taskId;
         });
-
+// safty check
         if (!task) return;
 
         if (filter === "All") {
@@ -203,10 +217,11 @@ function filterTasks(filter) {
 }
 
 
-// Theme toggle
+// 11-Theme toggle
 function toggleTheme() {
     document.body.classList.toggle("dark-mode");
 
+    // check dark-mode is active
     const isDark = document.body.classList.contains("dark-mode");
 
     localStorage.setItem("theme", isDark ? "dark" : "light");
@@ -218,14 +233,14 @@ function toggleTheme() {
 }
 
 
-// Get tasks
+// 12-Get tasks
 function getSavedTasks() {
     const saved = localStorage.getItem("tasks");
     return saved ? JSON.parse(saved) : [];
 }
 
 
-// Save tasks
+// 13-Save tasks as a string in local storage
 function saveTasks(tasks) {
     localStorage.setItem("tasks", JSON.stringify(tasks));
 }
